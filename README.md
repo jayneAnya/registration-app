@@ -347,6 +347,14 @@ curl -X POST http://localhost:9091/api/token \
   -d "username=testuser&password=testpass"
 ```
 
+
+## More Docker-Compose real world Examples
+```
+visit https://github.com/docker/awesome-compose
+```
+
+
+
 ## 📝 API Documentation
 
 Once the backend is running, you can access the interactive API documentation at:
