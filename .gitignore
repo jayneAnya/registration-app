@@ -1,30 +1,30 @@
-# # Environment files
-# .env
-# .env.*
-# *.env
-# frontend/.env
-# backend/.env
+# Environment files
+.env
+.env.*
+*.env
+frontend/.env
+backend/.env
 
-# # Node.js
-# node_modules/
-# frontend/node_modules/
-# frontend/build/
-# frontend/.cache/
+# Node.js
+node_modules/
+frontend/node_modules/
+frontend/build/
+frontend/.cache/
 
-# # Python
-# backend/__pycache__/
-# backend/*.pyc
-# backend/.venv/
-# backend/venv/
+# Python
+backend/__pycache__/
+backend/*.pyc
+backend/.venv/
+backend/venv/
 
-# # Logs
-# *.log
+# Logs
+*.log
 
-# # OS files
-# .DS_Store
-# Thumbs.db
+# OS files
+.DS_Store
+Thumbs.db
 
-# # IDE/editor
-# .vscode/
-# .idea/
+# IDE/editor
+.vscode/
+.idea/
 

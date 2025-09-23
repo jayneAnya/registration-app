@@ -27,7 +27,7 @@ function Dashboard() {
             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                 <Typography component="h1" variant="h4">
-                  Dashboard
+                  Dashboard Cohort 4
                 </Typography>
                 <Button variant="contained" color="secondary" onClick={handleLogout}>
                   Logout

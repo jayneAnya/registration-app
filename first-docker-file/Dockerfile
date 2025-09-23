@@ -1,16 +1,29 @@
-FROM ubuntu:latest
+############################################################
+# Original version (kept for reference)
+#
+# FROM ubuntu:latest
+#
+# WORKDIR /app
+#
+# COPY . /app
+#
+# RUN apt-get update && apt-get install -y python3 python3-pip
+#
+# ENV NAME World
+#
+# CMD ["python3", "app.py"]
+############################################################
 
-# Set the working directory in the image
+FROM python:3.11-slim
+
 WORKDIR /app
 
-# Copy the files from the host file system to the image file system
-COPY . /app
+# Copy only what's needed
+COPY app.py /app/
 
-# Install the necessary packages
-RUN apt-get update && apt-get install -y python3 python3-pip
+# Optional: smaller, cleaner runtime
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    NAME=World
 
-# Set environment variables
-ENV NAME World
-
-# Run a command to start the application
-CMD ["python3", "app.py"]
+CMD ["python", "app.py"]
