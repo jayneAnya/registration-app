@@ -27,7 +27,7 @@ function Dashboard() {
             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
                 <Typography component="h1" variant="h4">
-                  Dashboard Cohort 4
+                  Dashboard We succesfully deployed the application to ECR
                 </Typography>
                 <Button variant="contained" color="secondary" onClick={handleLogout}>
                   Logout
@@ -37,7 +37,7 @@ function Dashboard() {
                 Welcome, {user?.username}!
               </Typography>
               <Typography variant="body1" paragraph>
-                This is your dashboard. Here you can add your visualizations and data displays.
+                This is POD12's dashboard. Here you can add your visualizations and data displays.
               </Typography>
             </Paper>
           </Grid>

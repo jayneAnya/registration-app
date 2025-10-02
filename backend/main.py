@@ -22,7 +22,7 @@ api_router = APIRouter(prefix="/api")
 # CORS middleware configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3001", "http://localhost:3000"],  # Frontend URL
+    allow_origins=["http://13.50.15.164:9090", "http://localhost:9090"],  # Frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -64,10 +64,30 @@ class TokenData(BaseModel):
 fake_users_db = {}
 
 def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        # Try bcrypt first
+        return pwd_context.verify(plain_password, hashed_password)
+    except Exception:
+        # Fallback to SHA256 verification
+        import hashlib
+        if isinstance(plain_password, str):
+            plain_password = plain_password.encode('utf-8')
+        if len(plain_password) > 72:
+            plain_password = plain_password[:72]
+        return hashlib.sha256(plain_password).hexdigest() == hashed_password
 
 def get_password_hash(password):
-    return pwd_context.hash(password)
+    # Truncate password to 72 bytes max for bcrypt compatibility
+    if isinstance(password, str):
+        password = password.encode('utf-8')
+    if len(password) > 72:
+        password = password[:72]
+    try:
+        return pwd_context.hash(password)
+    except Exception as e:
+        # Fallback to simple hash if bcrypt fails
+        import hashlib
+        return hashlib.sha256(password).hexdigest()
 
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     to_encode = data.copy()

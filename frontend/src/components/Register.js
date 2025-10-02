@@ -82,6 +82,8 @@ function Register() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            inputProps={{ maxLength: 72 }}
+            helperText="Password must be 72 characters or less"
           />
           <Button
             type="submit"
