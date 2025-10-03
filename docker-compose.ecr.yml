@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/registration-frontend:latest
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/registration-frontend:v1
     ports:
       - "9090:3000"
     depends_on:
@@ -9,7 +9,7 @@ services:
     # with the correct REACT_APP_API_URL pointing to the backend's public URL.
 
   backend:
-    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/registration-backend:latest
+    image: ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/registration-backend:v1
     ports:
       - "9091:8000"
     environment:
